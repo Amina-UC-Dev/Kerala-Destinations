@@ -22,6 +22,8 @@ import 'package:destinations/services/api.dart';
 import 'package:destinations/services/api_url.dart';
 import 'package:destinations/services/shared_pref.dart';
 import 'package:destinations/widgets/commonWidget.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:destinations/const/colors.dart';
 
 class TempleProvider extends ChangeNotifier {
   final ApiService apiService = ApiService();
@@ -162,6 +164,31 @@ class TempleProvider extends ChangeNotifier {
     FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: false,allowedExtensions: ["jpg","jpeg","png"],type: FileType.custom,);
     if (result != null) {
       selectedImage = result.files.first.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage = croppedFile.path;
+      }
       print("IMAGE PATH :");
       print(selectedImage);
       notifyListeners();
@@ -175,6 +202,31 @@ class TempleProvider extends ChangeNotifier {
         imageQuality: 50);
     if(image != null){
       selectedImage = image.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage = croppedFile.path;
+      }
       print("IMAGE PATH :");
       print(selectedImage);
       notifyListeners();
@@ -185,6 +237,31 @@ class TempleProvider extends ChangeNotifier {
     FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: false,allowedExtensions: ["jpg","jpeg","png"],type: FileType.custom,);
     if (result != null) {
       selectedImage1 = result.files.first.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage1!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage1 = croppedFile.path;
+      }
       print("IMAGE 1 PATH :");
       print(selectedImage1);
       notifyListeners();
@@ -198,6 +275,31 @@ class TempleProvider extends ChangeNotifier {
         imageQuality: 50);
     if(image != null){
       selectedImage1 = image.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage1!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage1 = croppedFile.path;
+      }
       print("IMAGE 1 PATH :");
       print(selectedImage1);
       notifyListeners();
@@ -208,6 +310,31 @@ class TempleProvider extends ChangeNotifier {
     FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: false,allowedExtensions: ["jpg","jpeg","png"],type: FileType.custom,);
     if (result != null) {
       selectedImage2 = result.files.first.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage2!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage2 = croppedFile.path;
+      }
       print("IMAGE 2 PATH :");
       print(selectedImage2);
       notifyListeners();
@@ -221,6 +348,31 @@ class TempleProvider extends ChangeNotifier {
         imageQuality: 50);
     if(image != null){
       selectedImage2 = image.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage2!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage2 = croppedFile.path;
+      }
       print("IMAGE 2 PATH :");
       print(selectedImage2);
       notifyListeners();
@@ -231,6 +383,31 @@ class TempleProvider extends ChangeNotifier {
     FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: false,allowedExtensions: ["jpg","jpeg","png"],type: FileType.custom,);
     if (result != null) {
       selectedImage3 = result.files.first.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage3!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage3 = croppedFile.path;
+      }
       print("IMAGE 3 PATH :");
       print(selectedImage3);
       notifyListeners();
@@ -244,6 +421,31 @@ class TempleProvider extends ChangeNotifier {
         imageQuality: 50);
     if(image != null){
       selectedImage3 = image.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage3!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage3 = croppedFile.path;
+      }
       print("IMAGE 2 PATH :");
       print(selectedImage3);
       notifyListeners();
@@ -254,6 +456,31 @@ class TempleProvider extends ChangeNotifier {
     FilePickerResult? result = await FilePicker.platform.pickFiles(allowMultiple: false,allowedExtensions: ["jpg","jpeg","png"],type: FileType.custom,);
     if (result != null) {
       selectedImage4 = result.files.first.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage4!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage4 = croppedFile.path;
+      }
       print("IMAGE 4 PATH :");
       print(selectedImage4);
       notifyListeners();
@@ -267,6 +494,31 @@ class TempleProvider extends ChangeNotifier {
         imageQuality: 50);
     if(image != null){
       selectedImage4 = image.path;
+      CroppedFile? croppedFile = await ImageCropper().cropImage(
+        sourcePath: selectedImage4!,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          CropAspectRatioPreset.ratio3x2,
+          CropAspectRatioPreset.original,
+          CropAspectRatioPreset.ratio4x3,
+          CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Edit Image',
+              toolbarColor: primary,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              activeControlsWidgetColor: primary,
+              lockAspectRatio: false),
+          IOSUiSettings(
+            title: 'Edit Image',
+          ),
+        ],
+      );
+      if(croppedFile != null){
+        selectedImage4 = croppedFile.path;
+      }
       print("IMAGE 2 PATH :");
       print(selectedImage4);
       notifyListeners();
@@ -763,7 +1015,7 @@ class TempleProvider extends ChangeNotifier {
     request.fields["latitude"] = location[0];
     request.fields["longitude"] = location[1];
     request.headers.addAll(headers);
-    final response = await apiService.postMultiPartFormDataApi(
+    final response = await apiService.postMultiPartFormDataApi2(
       request: request, context: context, isLoading: true,
     );
     Navigator.pop(context);

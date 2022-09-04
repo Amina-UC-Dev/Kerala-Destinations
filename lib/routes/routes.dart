@@ -69,6 +69,7 @@ class PageNavigation {
 
   gotoAddTemples(BuildContext context) {
     Provider.of<TempleProvider>(context,listen: false).reset(context: context);
+    UserSharedPref().requestLocation(context);
     Provider.of<TempleProvider>(context,listen: false).init();
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => AddTemples()));
@@ -76,6 +77,7 @@ class PageNavigation {
 
   gotoLocalAddTemples(BuildContext context) {
     Provider.of<TempleProvider>(context,listen: false).reset(context: context);
+    UserSharedPref().requestLocation(context);
     Provider.of<TempleProvider>(context,listen: false).init();
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => AddLocalTemples()));

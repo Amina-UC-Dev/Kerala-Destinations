@@ -59,6 +59,15 @@ class TempleDetailScreen extends StatelessWidget {
                               control: SwiperControl(color: Colors.transparent),
                             ),
                           ),
+                          provider.destinationDetail!.result!.destinationPhotoCourtesy!.isNotEmpty ? Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 7,vertical: 3),
+                                child: Text("PC: ${provider.destinationDetail!.result!.destinationPhotoCourtesy}",style: TextStyle(fontSize: 10, fontWeight: FontWeight.w500, color: g6,fontStyle: FontStyle.italic),),
+                              )
+                            ],
+                          ) : Container(),
                           SizedBox(height: 10,),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -90,10 +99,6 @@ class TempleDetailScreen extends StatelessWidget {
                                 provider.destinationDetail!.result!.localName!.isNotEmpty ? RowTile(
                                   title: "Local name",
                                   value: "${provider.destinationDetail!.result!.localName}",
-                                ) : Container(),
-                                provider.destinationDetail!.result!.destinationPhotoCourtesy!.isNotEmpty ? RowTile(
-                                  title: "Image courtesy",
-                                  value: "${provider.destinationDetail!.result!.destinationPhotoCourtesy}",
                                 ) : Container(),
                                 RowTile(
                                   title: "Best Season",

@@ -38,6 +38,37 @@ class ApiService {
     }
   }
 
+  Future postMultiPartFormDataApi2({
+    required http.MultipartRequest request,
+    required BuildContext context,
+    required bool isLoading,
+  }) async {
+    try {
+      print("REQUEST BODY");
+      Logger().d(request.fields);
+      Logger().d(request.files);
+      http.Response response =
+      await http.Response.fromStream(await request.send());
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        print("SUCCESS");
+      } else {
+        print("FAIL");
+      }
+      var responseData = json.decode(response.body);
+      return responseData;
+    } on SocketException {
+      if (isLoading) {
+        Navigator.pop(context);
+      }
+      CommonWidgets()
+          .showSnack(context: context, msg: "Please connect your network!");
+      PageNavigation().gotoNoNetwork(context);
+    } catch (e) {
+      CommonWidgets().showSnack(msg: e.toString(), context: context);
+      return;
+    }
+  }
+
   Future postApi({
     required BuildContext context,
     required String url,
